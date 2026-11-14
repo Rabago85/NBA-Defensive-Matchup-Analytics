@@ -1,5 +1,5 @@
 [project]
-name = "nfl_big_data_bowl_2027"
+name = "nba_defensive_matchup_analytics"
 description = "..."
 # Matches Databricks Runtime 17.3 LTS (Python 3.12.3).
 requires-python = ">=3.12, <3.13"
