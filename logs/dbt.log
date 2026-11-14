@@ -1,0 +1,49 @@
+[0m17:39:27.897069 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104980ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1053b4290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105b873e0>]}
+
+
+============================== 17:39:27.899586 | ab5299ae-0b68-4bae-8112-9aa978c9bc4f ==============================
+[0m17:39:27.899586 [info ] [MainThread]: Running with dbt=1.10.19
+[0m17:39:27.899858 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'debug': 'False', 'indirect_selection': 'eager', 'profiles_dir': '/Users/williamandrews/.dbt', 'partial_parse': 'True', 'introspect': 'True', 'empty': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'log_path': 'logs', 'quiet': 'False', 'log_cache_events': 'False', 'invocation_command': 'dbt init', 'use_colors': 'True', 'no_print': 'None', 'write_json': 'True', 'warn_error': 'None', 'log_format': 'default', 'fail_fast': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'target_path': 'None'}
+[0m17:39:52.994908 [debug] [MainThread]: Starter project path: /Users/williamandrews/Desktop/NBA-Defensive-Matchup-Analytics/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m17:39:53.008962 [info ] [MainThread]: 
+Your new dbt project "nba_dbt_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m17:39:53.009577 [info ] [MainThread]: Setting up your profile.
+[0m17:39:58.142190 [debug] [MainThread]: Spark adapter: Setting pyhive.hive logging to ERROR
+[0m17:39:58.142445 [debug] [MainThread]: Spark adapter: Setting thrift.transport logging to ERROR
+[0m17:39:58.142583 [debug] [MainThread]: Spark adapter: Setting thrift.protocol logging to ERROR
+[0m17:43:12.828515 [info ] [MainThread]: Profile nba_dbt_analytics written to /Users/williamandrews/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m17:43:12.839823 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 224.9773, "process_in_blocks": "0", "process_kernel_time": 0.318752, "process_mem_max_rss": "213270528", "process_out_blocks": "0", "process_user_time": 3.232526}
+[0m17:43:12.840936 [debug] [MainThread]: Command `dbt init` succeeded at 17:43:12.840809 after 224.98 seconds
+[0m17:43:12.841346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105582cc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x125521100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x125d0fe90>]}
+[0m17:43:12.841759 [debug] [MainThread]: Flushing usage events
+[0m17:43:13.629024 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:03:57.354760 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1140c7470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1148e2000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113a36a20>]}
+
+
+============================== 18:03:57.357185 | 9298f43a-6f10-40fa-84b0-890f6f640b4a ==============================
+[0m18:03:57.357185 [info ] [MainThread]: Running with dbt=1.10.19
+[0m18:03:57.357472 [debug] [MainThread]: running dbt with arguments {'log_path': 'logs', 'invocation_command': 'dbt run --select bronze_tracking', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'cache_selected_only': 'False', 'write_json': 'True', 'target_path': 'None', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'debug': 'False', 'empty': 'False', 'quiet': 'False', 'indirect_selection': 'eager', 'printer_width': '80', 'introspect': 'True', 'fail_fast': 'False', 'profiles_dir': '/Users/williamandrews/.dbt', 'log_cache_events': 'False', 'static_parser': 'True', 'use_experimental_parser': 'False', 'log_format': 'default', 'version_check': 'True', 'warn_error': 'None'}
+[0m18:03:57.357745 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/williamandrews/Desktop/NBA-Defensive-Matchup-Analytics/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:03:57.358873 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.03472029, "process_in_blocks": "0", "process_kernel_time": 0.095577, "process_mem_max_rss": "102023168", "process_out_blocks": "0", "process_user_time": 0.636862}
+[0m18:03:57.359115 [debug] [MainThread]: Command `dbt run` failed at 18:03:57.359065 after 0.03 seconds
+[0m18:03:57.359287 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114b34620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113a36a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1139d7c50>]}
+[0m18:03:57.359446 [debug] [MainThread]: Flushing usage events
+[0m18:03:57.780314 [debug] [MainThread]: An error was encountered while trying to flush usage events
