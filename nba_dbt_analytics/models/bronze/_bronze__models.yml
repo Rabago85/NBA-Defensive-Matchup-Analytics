@@ -1,0 +1,107 @@
+version: 2
+
+models:
+  # ---------------- tracking ----------------
+  - name: bronze_tracking_0021500436
+    description: Typed, standardized tracking data for game 0021500436
+    config: &bronze_config
+      materialized: table
+      tags: [bronze, tracking]
+    data_tests: &bronze_tests
+      - dbt_utils.expression_is_true:
+          expression: "count(distinct team_id) = 3"
+          config: {severity: warn}
+      - dbt_utils.expression_is_true:
+          expression: "player_id = -1"
+          config: {where: 'team_id = -1', severity: warn}
+      - dbt_utils.expression_is_true:
+          expression: "player_id != -1"
+          config: {where: 'team_id != -1', severity: warn}
+      - dbt_utils.expression_is_true:
+          expression: "event_id >= 0"
+    columns:
+      - name: team_id
+        data_tests:
+          - not_null: {config: {severity: warn}}
+      - name: player_id
+        data_tests:
+          - not_null: {config: {severity: warn}}
+      - name: x_loc
+        data_tests:
+          - not_null: {config: {severity: warn}}
+          - dbt_utils.accepted_range: {min_value: "{{ var('min_and_max_expectations')['min_x_loc'] }}", 
+                                       max_value: "{{ var('min_and_max_expectations')['max_x_loc'] }}", 
+                                       config: {severity: warn}}
+      - name: y_loc
+        data_tests:
+          - not_null: {config: {severity: warn}}
+          - dbt_utils.accepted_range: {min_value: "{{ var('min_and_max_expectations')['min_y_loc'] }}", 
+                                       max_value: "{{ var('min_and_max_expectations')['max_y_loc'] }}", 
+                                       config: {severity: warn}}
+      - name: radius
+        data_tests:
+          - not_null: {config: {severity: warn}}
+          - dbt_utils.accepted_range: {min_value: "{{ var('min_and_max_expectations')['min_radius'] }}", 
+                                       max_value: "{{ var('min_and_max_expectations')['max_radius'] }}", 
+                                       config: {severity: warn}}
+      - name: game_clock
+        data_tests:
+          - not_null: {config: {severity: warn}}
+          - dbt_utils.accepted_range: {min_value: "{{ var('min_and_max_expectations')['min_game_clock'] }}", 
+                                       max_value: "{{ var('min_and_max_expectations')['max_game_clock'] }}", 
+                                       config: {severity: warn}}
+      - name: shot_clock
+        data_tests:
+          - not_null: {config: {severity: warn}}
+          - dbt_utils.accepted_range: {min_value: "{{ var('min_and_max_expectations')['min_shot_clock'] }}", 
+                                       max_value: "{{ var('min_and_max_expectations')['max_shot_clock'] }}", 
+                                       config: {severity: warn}}
+      - name: quarter
+        data_tests:
+          - not_null: {config: {severity: warn}}
+          - dbt_utils.accepted_range: {min_value: "{{ var('min_and_max_expectations')['min_quarter'] }}", 
+                                       max_value: "{{ var('min_and_max_expectations')['max_quarter'] }}", 
+                                       config: {severity: warn}}
+      - name: game_id
+        data_tests:
+          - not_null: {config: {severity: warn}}
+      - name: event_id
+        data_tests:
+          - not_null: {config: {severity: warn}}
+          
+
+  - name: bronze_tracking_0021500440
+    description: Typed, standardized tracking data for game 0021500440
+    config: *bronze_config
+    data_tests: *bronze_tests
+
+  - name: bronze_tracking_0021500XXX   # replace with game 3
+    description: Typed, standardized tracking data for game 0021500XXX
+    config: *bronze_config
+    data_tests: *bronze_tests
+
+  - name: bronze_tracking_0021500YYY   # replace with game 4
+    description: Typed, standardized tracking data for game 0021500YYY
+    config: *bronze_config
+    data_tests: *bronze_tests
+
+  # ---------------- events ----------------
+  # - name: bronze_events_0021500436
+  #   description: Typed, standardized play-by-play events for game 0021500436
+  #   config: *bronze_config
+  #   data_tests: *bronze_tests
+
+  # - name: bronze_events_0021500440
+  #   description: Typed, standardized play-by-play events for game 0021500440
+  #   config: *bronze_config
+  #   data_tests: *bronze_tests
+
+  # - name: bronze_events_0021500XXX   # replace with game 3
+  #   description: Typed, standardized play-by-play events for game 0021500XXX
+  #   config: *bronze_config
+  #   data_tests: *bronze_tests
+
+  # - name: bronze_events_0021500YYY   # replace with game 4
+  #   description: Typed, standardized play-by-play events for game 0021500YYY
+  #   config: *bronze_config
+  #   data_tests: *bronze_tests

@@ -22,6 +22,35 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+vars:
+  min_and_max_expectations:
+    min_x_loc: -3.0
+    max_x_loc: 97.0
+    min_y_loc: -3.0
+    max_y_loc: 53.0
+    min_radius: 0.0
+    max_radius: 20.0
+    min_game_clock: 0.0
+    max_game_clock: 720.0
+    min_shot_clock: 0.0
+    max_shot_clock: 24.0
+    min_quarter: 1
+    max_quarter: 5
+    min_event_id: 0
+    max_event_id: 600
+
+  tracking_row_counts:
+    0021500436: 2594363
+    0021500440: 2310384
+    0021500564: 2333311
+    0021500571: 2085372
+
+  events_row_counts:
+    0021500436: 481
+    0021500440: 426
+    0021500564: 486
+    0021500571: 448
+
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
