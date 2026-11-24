@@ -1,0 +1,1 @@
+{{ bronze_standardized(model.name )}}

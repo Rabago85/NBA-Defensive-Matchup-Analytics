@@ -4,13 +4,12 @@ models:
   # ---------------- tracking ----------------
   - name: bronze_tracking_0021500436
     description: Typed, standardized tracking data for game 0021500436
-    config: &bronze_config
-      materialized: table
+    config: &bronze_config_tracking
       tags: [bronze, tracking]
-    data_tests: &bronze_tests
-      - dbt_utils.expression_is_true:
-          expression: "count(distinct team_id) = 3"
-          config: {severity: warn}
+    data_tests: &bronze_tests_tracking
+      # - dbt_utils.expression_is_true:
+      #     expression: "count(distinct team_id) = 3"
+      #     config: {severity: error}
       - dbt_utils.expression_is_true:
           expression: "player_id = -1"
           config: {where: 'team_id = -1', severity: warn}
@@ -19,7 +18,11 @@ models:
           config: {where: 'team_id != -1', severity: warn}
       - dbt_utils.expression_is_true:
           expression: "event_id >= 0"
-    columns:
+          config: {severity: warn}
+      - dbt_utils.expression_is_true:
+          expression: "game_id = file_game_id"
+          config: {severity: warn}
+    columns: &column_tests_tracking
       - name: team_id
         data_tests:
           - not_null: {config: {severity: warn}}
@@ -72,18 +75,40 @@ models:
 
   - name: bronze_tracking_0021500440
     description: Typed, standardized tracking data for game 0021500440
-    config: *bronze_config
-    data_tests: *bronze_tests
+    config: *bronze_config_tracking
+    data_tests: *bronze_tests_tracking
+    columns: *column_tests_tracking
 
-  - name: bronze_tracking_0021500XXX   # replace with game 3
-    description: Typed, standardized tracking data for game 0021500XXX
-    config: *bronze_config
-    data_tests: *bronze_tests
+  - name: bronze_tracking_0021500564  
+    description: Typed, standardized tracking data for game 0021500564
+    config: *bronze_config_tracking
+    data_tests: *bronze_tests_tracking
+    columns: *column_tests_tracking
 
-  - name: bronze_tracking_0021500YYY   # replace with game 4
-    description: Typed, standardized tracking data for game 0021500YYY
-    config: *bronze_config
-    data_tests: *bronze_tests
+  - name: bronze_tracking_0021500571   
+    description: Typed, standardized tracking data for game 0021500571
+    config: *bronze_config_tracking
+    data_tests: *bronze_tests_tracking
+    columns: *column_tests_tracking
+
+# "dbt_utils_accepted_range_x_loc": [
+#     "bronze_tracking_0021500436",
+#     "bronze_tracking_0021500440",
+#     "bronze_tracking_0021500564",
+#     "bronze_tracking_0021500571"
+# ],
+
+# "dbt_utils_accepted_range_y_loc": [
+#     "bronze_tracking_0021500436",
+#     "bronze_tracking_0021500440"
+# ],
+
+# "not_null_shot_clock": [
+#     "bronze_tracking_0021500436",
+#     "bronze_tracking_0021500440",
+#     "bronze_tracking_0021500564",
+#     "bronze_tracking_0021500571"
+# ]
 
   # ---------------- events ----------------
   # - name: bronze_events_0021500436

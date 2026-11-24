@@ -5,9 +5,9 @@
         {'raw': 'player_id',  'name': 'player_id'},
         {'raw': 'x_loc',      'name': 'x_loc'},
         {'raw': 'y_loc',      'name': 'y_loc'},
-        {'raw': 'radius'      'name': 'radius'}
+        {'raw': 'radius',      'name': 'radius'},
         {'raw': 'game_clock', 'name': 'game_clock'},
-        {'raw': 'shot_clock', 'name': 'shot_clock'}
+        {'raw': 'shot_clock', 'name': 'shot_clock'},
         {'raw': 'quarter',    'name': 'quarter'},
         {'raw': 'game_id',    'name': 'game_id'},
         {'raw': 'event_id',   'name': 'event_id'},

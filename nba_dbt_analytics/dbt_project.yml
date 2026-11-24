@@ -39,6 +39,10 @@ vars:
     min_event_id: 0
     max_event_id: 600
 
+  unique_teams_and_ball:
+    individual_file_count: 3
+    silver_file_count: 9
+
   tracking_row_counts:
     0021500436: 2594363
     0021500440: 2310384
